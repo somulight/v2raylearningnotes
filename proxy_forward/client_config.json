@@ -1,5 +1,5 @@
 //配置来源：https://toutyrater.github.io/advanced/outboundproxy.html#%E5%9F%BA%E6%9C%AC%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91
-//用途：让v2ray通过本地的小飞机来代理，解决vps线路差的问题
+//用途：让v2ray代理本地的socks代理，解决vps线路差的问题
 {
   "inbounds": [
     {
