@@ -40,7 +40,7 @@
       "settings": {
         "servers": [{
             "address": "127.0.0.1",
-            "port": 10806
+            "port": 10086
           }]
       },
       "tag": "transit"
