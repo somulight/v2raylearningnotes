@@ -1,16 +1,16 @@
 //配置来源：https://toutyrater.github.io/advanced/outboundproxy.html#%E5%9F%BA%E6%9C%AC%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91
-//
+//用途：让v2ray通过本地的小飞机来代理，解决vps线路差的问题
 {
   "inbounds": [
     {
       "port": 1080, // 监听端口
       "protocol": "socks", // 入口协议为 SOCKS 5
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
-      }, 
+      //"sniffing": {
+        //"enabled": true,
+        //"destOverride": ["http", "tls"]
+      //}, 
       //sniffing：V2Ray手册解释为“流量探测，根据指定的流量类型，重置所请求的目标”，简单说这东西就是从网络流量中识别出域名。
-      //试了试有没有这个sniffing都一样，反正自用
+      //试了试有没有这个sniffing都一样，反正自用直接注释掉
       "settings": {}
     }
   ],
@@ -36,7 +36,7 @@
         }
     },
     {
-      "protocol": "socks",
+      "protocol": "socks",//本机socks代理
       "settings": {
         "servers": [{
             "address": "127.0.0.1",
