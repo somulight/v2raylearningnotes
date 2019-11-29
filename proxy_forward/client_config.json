@@ -1,0 +1,49 @@
+//配置来源：https://toutyrater.github.io/advanced/outboundproxy.html#%E5%9F%BA%E6%9C%AC%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91
+//
+{
+  "inbounds": [
+    {
+      "port": 1080, // 监听端口
+      "protocol": "socks", // 入口协议为 SOCKS 5
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      }, 
+      //sniffing：V2Ray手册解释为“流量探测，根据指定的流量类型，重置所请求的目标”，简单说这东西就是从网络流量中识别出域名。
+      //试了试有没有这个sniffing都一样，反正自用
+      "settings": {}
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": { // settings 的根据实际情况修改
+        "vnext": [
+          {
+            "address": "0.0.0.0",//i
+            "port": 443,//i
+            "users": [
+              {
+                "alterId": 64,
+                "id": "**********************************"//i
+              }
+            ]
+          }
+        ]
+      },
+      "proxySettings": {
+          "tag": "transit"  // 这里的 tag 必须跟作为代理 VPS 的 tag 一致，这里设定的是 "transit"//不知道这是啥玩意，但是删了就会提示缺少proxy tag
+        }
+    },
+    {
+      "protocol": "socks",
+      "settings": {
+        "servers": [{
+            "address": "127.0.0.1",
+            "port": 10806
+          }]
+      },
+      "tag": "transit"
+    }
+  ]
+}
